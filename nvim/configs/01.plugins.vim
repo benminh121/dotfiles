@@ -8,4 +8,8 @@ Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()

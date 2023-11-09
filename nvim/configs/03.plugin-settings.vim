@@ -1,7 +1,7 @@
 syntax enable
 set background=dark
 set termguicolors
-syntax on
+
 colorscheme dracula
 
 let g:airline_theme='bubblegum'
@@ -58,3 +58,29 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 "" Map phím "\f" để tìm nội dung, tương tự như "Ctrl + Shift + F" trên VSCode nhé
 nnoremap <silent> <Leader>f :Rg<CR>
 
+let g:coc_global_extensions = [
+	\ "@yaegassy/coc-black-formatter",
+	\ "coc-java",
+	\ "coc-highlight",
+	\ "coc-sql",
+	\ "coc-tabnine",
+	\ "coc-ltex",
+	\ "coc-copilot",
+  \ "coc-git",
+  \ "coc-prettier",
+  \ "coc-eslint"
+	\ ]
+
+"" Map Ctrl + Space để show list functions/biến autocomplete
+inoremap <silent><expr> <c-space> coc#refresh()
+
+"" Tự động import file của biến/function khi chọn và nhấn Tab
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+let g:prettier#autoformat = 1
+
+" Avoid space
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
