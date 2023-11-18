@@ -60,7 +60,7 @@ export PATH=$PATH:$GO_HOME/bin
 alias vi="nvim"
 alias kbs="kubectl"
 
-export LOCALSTACK_API_KEY=5W8042GjhP
+export LOCALSTACK_API_KEY=
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
