@@ -2,37 +2,69 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
-      "segments": [
-        {
-          "foreground": "#00C5C7",
-          "properties": {
-            "time_format": "15:04:05"
-          },
-          "style": "plain",
-          "template": " {{ .CurrentDate | date .Format }} ",
-          "type": "time"
-        }
-      ],
-      "type": "rprompt"
-    },
-    {
       "alignment": "left",
       "segments": [
+        {
+          "type": "python",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#f08080",
+          "template": "  {{ .Venv }} {{ .Full }} ",
+          "properties": {"home_enabled": true}
+        },
+
         {
           "foreground": "#77E4F7",
           "properties": {
             "style": "full"
           },
-          "style": "plain",
-          "template": "{{ .Path }} ",
+          "style": "diamond",
+          "template": " \ue5ff {{ .Path }} ",
           "type": "path"
         },
+
         {
           "foreground": "#FFE700",
           "style": "plain",
           "template": "{{ .HEAD }} ",
           "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "#00C5C7",
+          "properties": {
+            "time_format": "15:04"
+          },
+          "style": "plain",
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "type": "time"
         },
+        {
+          "type": "shell",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#ffffff",
+          "background": "#0077c2",
+          "properties": {
+            "mapped_shell_names": {
+              "pwsh": "PS"
+            }
+          }
+        }
+      ],
+      "type": "prompt"
+    },
+
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
         {
           "foreground": "#43D426",
           "style": "plain",
